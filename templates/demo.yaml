@@ -1,0 +1,20 @@
+apiVersion: config.istio.io/v1alpha2
+kind: RouteRule
+metadata:
+  name: some-service-policy
+  labels:
+    another: label
+    app: foo-bar
+    chart: helm-foo-bar-0.1.184
+    heritage: Tiller
+    release: foo-bar
+    version: "25"
+spec:
+  destination:
+    name: some-service
+  httpReqRetries:
+    simpleRetry:
+      attempts: 1
+  httpReqTimeout:
+    simpleTimeout:
+      timeout: 1
